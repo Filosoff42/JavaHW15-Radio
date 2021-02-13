@@ -33,42 +33,38 @@ class RadioTest {
     }
 
     @Test
-    void shouldSetCurrentStationWithButtonIfNext() {
+    void shouldNext() {
         Radio radio = new Radio();
-        String stationButton = "next";
         radio.setCurrentStationWithNumber(5);
-        radio.setCurrentStationWithButton(stationButton);
+        radio.next();
         assertEquals(6, radio.getCurrentStation());
     }
 
     @Test
-    void shouldSetCurrentStationWithButtonIfPrev() {
+    void shouldPrev() {
         Radio radio = new Radio();
-        String stationButton = "prev";
         radio.setCurrentStationWithNumber(5);
-        radio.setCurrentStationWithButton(stationButton);
+        radio.prev();
         assertEquals(4, radio.getCurrentStation());
     }
 
     @Test
-    void shouldSetCurrentStationWithButtonIf9AndNext() {
+    void shouldNextIf9() {
         Radio radio = new Radio();
-        String stationButton = "next";
         radio.setCurrentStationWithNumber(9);
-        radio.setCurrentStationWithButton(stationButton);
+        radio.next();
         assertEquals(0, radio.getCurrentStation());
     }
 
     @Test
-    void shouldSetCurrentStationWithButtonIf0AndPrev() {
+    void shouldPrevIf0() {
         Radio radio = new Radio();
-        String stationButton = "prev";
-        radio.setCurrentStationWithButton(stationButton);
+        radio.prev();
         assertEquals(9, radio.getCurrentStation());
     }
 
     @Test
-    void setCurrentVolumeIfTrue() {
+    void shouldSetCurrentVolumeIfTrue() {
         Radio radio = new Radio();
         int expected = 5;
         radio.setCurrentVolume(expected);
@@ -76,7 +72,7 @@ class RadioTest {
     }
 
     @Test
-    void setCurrentVolumeIfAbove() {
+    void shouldSetCurrentVolumeIfAbove() {
         Radio radio = new Radio();
         int newCurrentVolume = 11;
         radio.setCurrentVolume(newCurrentVolume);
@@ -84,7 +80,7 @@ class RadioTest {
     }
 
     @Test
-    void setCurrentVolumeIfBelow() {
+    void shouldSetCurrentVolumeIfBelow() {
         Radio radio = new Radio();
         int newCurrentVolume = -1;
         radio.setCurrentVolume(newCurrentVolume);
@@ -92,37 +88,33 @@ class RadioTest {
     }
 
     @Test
-    void setCurrentVolumeWithButtonIfPlus() {
+    void shouldButtonPlus() {
         Radio radio = new Radio();
-        String volumeButton = "+";
         radio.setCurrentVolume(5);
-        radio.setCurrentVolumeWithButton(volumeButton);
+        radio.buttonPlus();
         assertEquals(6, radio.getCurrentVolume());
     }
 
     @Test
-    void setCurrentVolumeWithButtonIfMinus() {
+    void shouldButtonMinus() {
         Radio radio = new Radio();
-        String volumeButton = "-";
         radio.setCurrentVolume(5);
-        radio.setCurrentVolumeWithButton(volumeButton);
+        radio.buttonMinus();
         assertEquals(4, radio.getCurrentVolume());
     }
 
     @Test
-    void setCurrentVolumeWithButtonIfPlusAnd10() {
+    void shouldButtonPlusIf10() {
         Radio radio = new Radio();
-        String volumeButton = "+";
         radio.setCurrentVolume(10);
-        radio.setCurrentVolumeWithButton(volumeButton);
+        radio.buttonPlus();
         assertEquals(10, radio.getCurrentVolume());
     }
 
     @Test
-    void setCurrentVolumeWithButtonIfMinusAnd0() {
+    void shouldButtonMinusIf0() {
         Radio radio = new Radio();
-        String volumeButton = "-";
-        radio.setCurrentVolumeWithButton(volumeButton);
+        radio.buttonMinus();
         assertEquals(0, radio.getCurrentVolume());
     }
 

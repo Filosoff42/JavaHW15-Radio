@@ -18,18 +18,19 @@ public class Radio {
         this.currentStation = newCurrentStation;
     }
 
-    public void setCurrentStationWithButton(String stationButton) {
-        if (stationButton == "next") {
-            if (currentStation == 9) {
-                this.currentStation = 0;
-            } else
-                this.currentStation += 1;
+    public void next() {
+        if (currentStation == 9) {
+            this.currentStation = 0;
+        } else {
+            this.currentStation += 1;
         }
-        if (stationButton == "prev") {
-            if (currentStation == 0) {
-                this.currentStation = 9;
-            } else
-                this.currentStation -= 1;
+    }
+
+    public void prev() {
+        if (currentStation == 0) {
+            this.currentStation = 9;
+        } else {
+            this.currentStation -= 1;
         }
     }
 
@@ -47,18 +48,18 @@ public class Radio {
         this.currentVolume = currentVolume;
     }
 
-    public void setCurrentVolumeWithButton(String volumeButton) {
-        if (volumeButton == "+") {
-            if (currentVolume == 10) {
-                return;
-            }
-            this.currentVolume += 1;
+    public void buttonPlus() {
+        if (currentVolume == 10) {
+            return;
         }
-        if (volumeButton == "-") {
-            if (currentVolume == 0) {
-                return;
-            }
-            this.currentVolume -= 1;
+        this.currentVolume += 1;
+    }
+
+    public void buttonMinus() {
+        if (currentVolume == 0) {
+            return;
         }
+        this.currentVolume -= 1;
     }
 }
+
